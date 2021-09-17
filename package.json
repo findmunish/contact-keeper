@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Contact Manager App",
   "main": "server.js",
+  "private": true,
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientInstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \" npm run client\""
   },
   "keywords": [],
   "author": "Munish Sawhney",
