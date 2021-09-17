@@ -15,9 +15,11 @@ module.exports = {
         INVALID_TOKEN: 'Token is not valid, authorization denied',
         INVALID_EMAIL: 'Invalid email'
     },
-    // CONTACTS: {
-
-    // },
+    CONTACTS: {
+        NOT_FOUND: 'Contact not found',
+        NOT_AUTHORIZED: 'Not Authorized',
+        DELETE_SUCCESS: 'Contact is removed successfully'
+    },
     RETURN: {
         SERVER_ERROR: 'Server Error'
     }
