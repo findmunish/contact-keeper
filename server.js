@@ -16,9 +16,9 @@ app.use(cors());
 // Init middleware
 app.use( express.json({ extended: false }) );
 
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
     app.get('/', (req, res) => res.json({ msg: 'Welcome to the Contact-Keeper API....' }) );
-}
+// }
 
 // Define routes
 app.use ('/api/users', require('./routes/users'));
