@@ -73,8 +73,13 @@ router.put('/:id', auth, async (req, res) => {
             res.status(401).json({ msg: ERRORS.CONTACTS.NOT_AUTHORIZED })
         }
 
-        await Contact.findByIdAndRemove( req.params.id );
-        res.json({ msg: 'Contact is removed successfully' });
+        contact = await Contact.findByIdAndUpdate(
+            req.params.id,
+            {$set: contactFields},
+            {new: true},
+          );
+
+          res.json(contact);
     } catch (error) {
         console.error('Error editing an existing contact: ', error.message);
         res.status(500).send(ERRORS.RETURN.SERVER_ERROR);
@@ -101,4 +106,5 @@ router.delete('/:id', auth, async (req, res) => {
         res.status(500).send(ERRORS.RETURN.SERVER_ERROR);
     }
 });
+
 module.exports = router;

@@ -30,7 +30,7 @@ const checkRules = (req, res, next) => {
 router.post('/', validationBodyRules, checkRules, async (req, res, next) => {
     const {name, email, password } = req.body;
     try {
-        let user = await User.findOne({ email: email });
+        let user = await User.findOne({ email: email.trim().toLowerCase() });
         if (user) {
             return res.status(400).json({ msg: ERRORS.USERS.USER_EXISTS })
         }
