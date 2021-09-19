@@ -32,7 +32,7 @@ const ContactState = props => {
 
             dispatch({ type: GET_CONTACTS, payload: response.data });
         } catch (error) {
-            dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
+            dispatch({ type: CONTACT_ERROR, payload: error });
         }
     }
 
@@ -48,7 +48,7 @@ const ContactState = props => {
 
             dispatch({ type: ADD_CONTACT, payload: response.data });
         } catch (error) {
-            dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
+            dispatch({ type: CONTACT_ERROR, payload: error.response.data.msg });
         }
     }
 
@@ -59,7 +59,7 @@ const ContactState = props => {
 
             dispatch({ type: DELETE_CONTACT, payload: _id });
         } catch (error) {
-            dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
+            dispatch({ type: CONTACT_ERROR, payload: error.response.data.msg });
         }
     }
 
@@ -75,7 +75,7 @@ const ContactState = props => {
 
             dispatch({ type: UPDATE_CONTACT, payload: response.data });
         } catch (error) {
-            dispatch({ type: CONTACT_ERROR, payload: error.response.msg });
+            dispatch({ type: CONTACT_ERROR, payload: error.response.data.msg });
         }
     }
 
