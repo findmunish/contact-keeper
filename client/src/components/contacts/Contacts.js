@@ -28,7 +28,7 @@ const Contacts = () => {
                                 <ContactItem contact={contact} />
                             </CSSTransition>
                         ))
-                        : contacts.map(contact => (
+                        : contacts !== null && contacts.map(contact => (
                             <CSSTransition key={contact._id} timeout={500} classNames="item">
                                 <ContactItem contact={contact} />
                             </CSSTransition>
