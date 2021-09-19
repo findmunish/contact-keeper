@@ -15,6 +15,7 @@ import {
     CONTACT_ERROR
 } from '../types';
 
+// const BASE_URL = 'http://localhost:5000';
 const ContactState = props => {
     const initialState = {
         contacts: null,
@@ -29,7 +30,7 @@ const ContactState = props => {
     const getContacts = async () => {
         try {
             const response = await axios.get('/api/contacts');
-
+            // const response = await axios.get(`${BASE_URL}/api/contacts`);
             dispatch({ type: GET_CONTACTS, payload: response.data });
         } catch (error) {
             dispatch({ type: CONTACT_ERROR, payload: error });
@@ -45,7 +46,7 @@ const ContactState = props => {
         }
         try {
             const response = await axios.post('/api/contacts', contact, config);
-
+            // const response = await axios.post(`${BASE_URL}/api/contacts`, contact, config);
             dispatch({ type: ADD_CONTACT, payload: response.data });
         } catch (error) {
             dispatch({ type: CONTACT_ERROR, payload: error.response.data.msg });
@@ -56,7 +57,7 @@ const ContactState = props => {
     const deleteContact = async _id => {
         try {
             await axios.delete(`/api/contacts/${_id}`);
-
+            // await axios.delete(`${BASE_URL}/api/contacts/${_id}`);
             dispatch({ type: DELETE_CONTACT, payload: _id });
         } catch (error) {
             dispatch({ type: CONTACT_ERROR, payload: error.response.data.msg });
@@ -72,7 +73,7 @@ const ContactState = props => {
         }
         try {
             const response = await axios.put(`/api/contacts/${contact._id}`, contact, config);
-
+            // const response = await axios.put(`${BASE_URL}/api/contacts/${contact._id}`, contact, config);
             dispatch({ type: UPDATE_CONTACT, payload: response.data });
         } catch (error) {
             dispatch({ type: CONTACT_ERROR, payload: error.response.data.msg });
@@ -128,4 +129,5 @@ const ContactState = props => {
         </ContactContext.Provider>
     )
 }
+
 export default ContactState;
