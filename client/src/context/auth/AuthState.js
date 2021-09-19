@@ -13,7 +13,7 @@ import {
     LOGOUT,
     CLEAR_ERRORS
 } from '../types';
-const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
 const AuthState = props => {
     const initialState = {
         token: localStorage.getItem('tokenData') ? JSON.parse(localStorage.getItem('tokenData')).token : null,
@@ -31,8 +31,8 @@ const AuthState = props => {
             setAuthToken(JSON.parse(localStorage.tokenData));
         }
         try {
-            // const response = await axios.get('/api/auth');
-            const response = await axios.get(`${BASE_URL}/api/auth`);
+            const response = await axios.get('/api/auth');
+            // const response = await axios.get(`${BASE_URL}/api/auth`);
             dispatch({ type: USER_LOADED, payload: response.data });
 
         } catch(error) {
@@ -48,8 +48,8 @@ const AuthState = props => {
             }
         }
         try {
-            // const response = await axios.post('/api/users', formData, config);
-            const response = await axios.post(`${BASE_URL}/api/users`, formData, config);
+            const response = await axios.post('/api/users', formData, config);
+            // const response = await axios.post(`${BASE_URL}/api/users`, formData, config);
             dispatch({ type: LOGIN_SUCCESS, payload: response.data });
 
             await loadUser();
@@ -66,8 +66,8 @@ const AuthState = props => {
             }
         }
         try {
-            // const response = await axios.post('/api/auth', formData, config);
-            const response = await axios.post(`${BASE_URL}/api/auth`, formData, config);
+            const response = await axios.post('/api/auth', formData, config);
+            // const response = await axios.post(`${BASE_URL}/api/auth`, formData, config);
             dispatch({ type: REGISTER_SUCCESS, payload: response.data });
 
             await loadUser();
