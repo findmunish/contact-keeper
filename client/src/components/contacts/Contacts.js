@@ -36,7 +36,6 @@ const Contacts = () => {
                     }
                 </TransitionGroup>
             ) : <Spinner /> }
-            
         </Fragment>
     )
 }
