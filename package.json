@@ -10,7 +10,7 @@
     "client": "npm start --prefix client",
     "clientInstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \" npm run client\"",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client && npm run serve --prefix client"
   },
   "keywords": [],
   "author": "Munish Sawhney",
